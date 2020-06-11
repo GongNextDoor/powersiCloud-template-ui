@@ -1,0 +1,511 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+body {
+  height: 100%;
+  background-color: $bg;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: $font-family;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $font-family;
+}
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.right {
+  float: right;
+}
+
+.text-right {
+  text-align: right;
+}
+
+//main-container全局样式
+.app-main {
+  height: calc(100% - 98px);
+  padding: $const - 4px;
+
+  & > div {
+    height: 100%;
+
+    .third-index{
+      height: 100%;
+    }
+  }
+
+  .layer-query {
+
+    .el-col:last-child {
+      font-size: 0;
+
+      button {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .layer-result {
+
+    .box{
+
+      .box-header + .box-body {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+section.layer + section.layer {
+  margin-top: $const - 4px;
+}
+
+#app .sidebar-container .submenu-title-noDropdown:hover,
+#app .sidebar-container .el-submenu__title:hover {
+  // @include set-tag-bg($tag-theme1);
+  background-color: $subMenuHover !important;
+}
+
+
+.box {
+  position: relative;
+  height: 100%;
+  background-color: $white;
+  border-radius: 2px;
+  font-size: 14px;
+
+  .box-header {
+    position: relative;
+    padding: 10px;
+
+    span.box-title {
+      position: relative;
+      display: inline-block;
+      padding-left: 14px;
+      font-weight: bold;
+      color: #101010;
+      font-size: 16px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 14px;
+        left: 0;
+        top: 1px;
+        background-color: $--primary-blue;
+      }
+    }
+
+    .box-tools {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      height: 32px;
+      line-height: 32px;
+      font-size: 0;
+
+      .el-button--text {
+        color: $text;
+      }
+    }
+
+    &.handle {
+      height: 53px;
+      line-height: 52px;
+      padding: 0 10px;
+
+      span.box-title::after {
+        top: 9px;
+      }
+
+      .box-title {
+        height: 32px;
+        line-height: 32px;
+      }
+
+      .el-form--inline {
+        height: 32px;
+
+        .el-form-item--small {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .box-body {
+    padding: 10px;
+    height: calc(100% - 37px);
+  }
+
+  .tbLine{
+    padding-bottom: 11px !important;
+    padding-top: 11px !important;
+    border-bottom: 1px solid #E3E3E5;
+    border-top:1px solid #E3E3E5;
+  }
+
+  .handle + .box-body {
+    height: calc(100% - 53px);
+
+  }
+
+  .handle.small + .box-body {
+    height: calc(100% - 49px);
+  }
+
+  // .box-body .el-form .el-row .el-col button {
+  //   margin-bottom: 6px;
+  // }
+
+  .el-input-group__prepend button ,
+  .el-input-group__append button{
+    margin: 0 -10px !important;
+    height: 30px;
+  }
+
+  &.no-border {
+    border-color: transparent;
+  }
+
+  &.no-radius {
+    border-radius: 0;
+  }
+
+  & + .box {
+    margin-top: 10px;
+  }
+
+  .layer-query & {
+
+    .box-body {
+      padding: 16px 10px 0;
+    }
+  }
+}
+
+.span-ellipsis{
+  width: 100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+//修改表格中表单校验错误提示样式
+.table-form-validate {
+  .el-form-item__error{
+    padding: 5px;
+    background-color: #f56c6c;
+    color: #fff;
+    white-space: nowrap;
+    line-height: 24px;
+    left: 50%;
+    bottom: auto;
+    border-radius: 5px;
+    transform: translateX(-50%);
+  }
+  .el-form-item__error--inline{
+    position: absolute;
+    top: 100%;
+    margin-left:0px;
+  }
+  .el-form-item__content{
+    position: static;
+  }
+  &.el-form .el-form-item{
+    margin-bottom: 0px;
+  }
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px
+}
+/*定义滚动条轨道*/
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  background-color: #c0c4cc;
+  // background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2px;
+}
+// 调整elementui中弹出框中确定和取消按钮的位置
+.btn-custom-cancel {
+  float: right;
+  margin-left: 10px;
+}
+
+.vxe-table {
+
+  thead th {
+    font-size: 14px;
+    font-weight: 700;
+    color: $text-color-title;
+  }
+
+  .vxe-table--header .vxe-header--column {
+    text-align: center !important;
+  }
+
+  .vxe-table--body .vxe-body--column  {
+    text-align: center;
+  }
+
+  .vxe-header--column:not(.col--ellipsis) {
+    padding: 0 !important;
+    height: 44px;
+    line-height: 44px
+  }
+
+  .handle-text {
+    color: $--primary-blue;
+
+    &.modify {
+      color: $--primary-blue;
+    }
+
+    &.delete {
+      color: $--color-danger;
+    }
+
+    &.save {
+      color: $--color-success;
+    }
+  }
+}
+
+.item1 {
+  .layer-result {
+    height: calc(100% - #{$title-height + 76px});
+  }
+}
+
+.item2 {
+
+  .layer-query .el-col:last-child {
+    @media only screen and (max-width: 1199px) {
+      float: right;
+      text-align: right;
+    }
+  }
+
+  .layer-result {
+    height: calc(100% - #{$title-height + 76px});
+    @media only screen and (max-width: 1199px) {
+      height: calc(100% - #{$title-height + 124px});
+    }
+  }
+}
+
+.item3 {
+
+  .layer-query .el-col:last-child {
+    @media only screen and (max-width: 1919px) {
+      float: right;
+      text-align: right;
+    }
+  }
+
+  .layer-result {
+    height: calc(100% - #{$title-height + 76px});
+    @media only screen and (max-width: 1919px) {
+      height: calc(100% - #{$title-height + 124px});
+    }
+  }
+}
+
+.item4,
+.item5 {
+
+  .layer-query .el-col:last-child {
+      float: right;
+      text-align: right;
+  }
+
+  .layer-result {
+    height: calc(100% - #{$title-height + 124px});
+    @media only screen and (max-width: 1199px) {
+      height: calc(100% - #{$title-height + 172px});
+    }
+  }
+}
+.item6 {
+  .layer-query .el-col:last-child {
+    @media only screen and (min-width: 1200px) and (max-width: 1919px) {
+      width: 100%;
+      float: right;
+      text-align: right;
+    }
+    @media only screen and (min-width: 1919px) {
+      float: right;
+      text-align: right;
+    }
+  }
+}
+
+.item7 {
+  .layer-query .el-col:last-child {
+    @media only screen and (min-width: 1200px) {
+      float: right;
+      text-align: right;
+    }
+  }
+}
+.item6,
+.item7 {
+
+  .layer-result {
+    height: calc(100% - #{$title-height + 124px});
+    @media only screen and (min-width: 1200px) and (max-width: 1919px) {
+      height: calc(100% - #{$title-height + 172px});
+    }
+    @media only screen and (max-width: 1199px) {
+      height: calc(100% - #{$title-height + 220px});
+    }
+  }
+
+  & > section:nth-child(2) .el-row .el-col:last-child .person-form .inpatientList{
+    border-right: 0;
+  }
+}
+.item8 {
+
+    .layer-result {
+        height: calc(100% - #{$title-height + 174px});
+        @media only screen and (min-width: 1200px) and (max-width: 1919px) {
+            height: calc(100% - #{$title-height + 174px});
+        }
+        @media only screen and (max-width: 1199px) {
+            height: calc(100% - #{$title-height + 270px});
+        }
+    }
+
+    & > section:nth-child(2) .el-row .el-col:last-child .person-form .inpatientList{
+        border-right: 0;
+    }
+}
+.item9 {
+
+    .layer-result {
+        height: calc(100% - #{$title-height + 172px});
+        @media only screen and (min-width: 1200px) and (max-width: 1919px) {
+            height: calc(100% - #{$title-height + 220px});
+        }
+        @media only screen and (max-width: 1199px) {
+            height: calc(100% - #{$title-height + 270px});
+        }
+    }
+
+    & > section:nth-child(2) .el-row .el-col:last-child .person-form .inpatientList{
+        border-right: 0;
+    }
+}
+
+.table-data {
+  width: 100%;
+  margin-bottom: 10px;
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  tr > td {
+    height: 40px;
+    line-height: 39px;
+    padding: 0;
+    border: 1px solid #E0E1E2;
+
+    &:nth-child(2n-1) {
+      width: 105px;
+      padding-right: 8px;
+      background-color: #f5f7fa;
+      text-align: right;
+    }
+
+    &:nth-child(2n) {
+      padding-left: 8px;
+    }
+  }
+}
+.confirm-message-box{
+  .el-button--primary{
+    background-color: $--primary-blue;
+    color: #fff;
+  }
+}
+
+
+
+
+
+
+
+
+@import './new.scss';
