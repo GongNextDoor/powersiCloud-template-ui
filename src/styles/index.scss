@@ -33,6 +33,7 @@ textarea {
   padding: 8px;
   margin-bottom: 4px;
   border-radius: 3px;
+  box-sizing: border-box;
 }
 .box-top {
   border-top: 3px solid $--color-primary;
