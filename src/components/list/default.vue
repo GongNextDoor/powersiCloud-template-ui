@@ -359,7 +359,7 @@ export default {
     border: 1px solid rgb(244, 244, 244);
   }
   .pf-table {
-    height: calc(100% - 34px);
+    height: 100%;
     /* 添加配置表头按钮时添加的 */
     position: relative;
   }
@@ -377,8 +377,8 @@ export default {
     z-index: 999;
     color: #636363;
     border-left:1px solid #E0E1E2;
-    height: 44px;
-    line-height: 44px;
+    height: 38px;
+    line-height: 38px;
     width: 30px;
     text-align: center;
     background-color: #F0F2F5;
@@ -393,11 +393,6 @@ export default {
 .check-header{
   /deep/.el-checkbox-group .el-checkbox+.el-checkbox{
     margin-left: 0;
-  }
-  .el-checkbox-group{
-    .el-checkbox__label{
-    }
-
   }
 }
 </style>

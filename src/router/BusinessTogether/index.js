@@ -24,27 +24,3 @@ export default [
   CreditFileManage,
   SystemManage
 ]
-
-// 这里目前不用了，之前是三级菜单，目前做成两级菜单
-// export default {
-//   path: '/business-together',
-//   component: Layout,
-//   alwaysShow: true,
-//   meta: {
-//     title: '业务协同',
-//     icon: 'icon'
-//   },
-//   children: [
-//     MessageManage,
-//     PerformanceManage,
-//     CommonlyUsedTools,
-//     FileReleaseManage,
-//     GovernmentServiceManage,
-//     VisitorRegistrationManage,
-//     ExamManage,
-//     DutyInforManage,
-//     KnowledgeBaseManage,
-//     CreditFileManage,
-//     SystemManage
-//   ]
-// }

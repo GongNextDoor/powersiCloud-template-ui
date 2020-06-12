@@ -1,5 +1,5 @@
 module.exports = {
-  title: '业务辅助子系统',
+  title: '和宇云开发模板',
 
   /**
    * @type {boolean} true | false

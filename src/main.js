@@ -6,6 +6,7 @@ Vue.use(components)
 import Cookies from 'js-cookie'
 
 import 'normalize.css/normalize.css' // a modern alternative to CSS resets
+import '@/assets/font-awesome-4.7.0/css/font-awesome.css'
 
 import Element from 'element-ui'
 import './styles/element-variables.scss'

@@ -30,13 +30,33 @@ $logoBorder:var(--logo-border,none);
 
 
 // 重定义element-UI变量
-$--primary-blue: var(--primary-blue, #49A1F9)!default; //定义变量在js中操作 需要用到主色调并参与换肤的请使用该变量
-$--color-primary:                                #49A1F9;   //主题色
+$--primary-blue: var(--primary-blue, #ff851b)!default; //定义变量在js中操作 需要用到主色调并参与换肤的请使用该变量
+$--color-primary:                                #ff851b;   //主题色
 $--color-success:                                #67c23a;   //成功
 $--color-warning:                                #e6a23c;   //警告
 $--color-danger:                                 #FF7443;   //危险
 $color-assist:                                   #3CA0F6;   //辅肋色
 $gradual:                                        #3B71E8;   //渐变色
+
+// 背景色
+$night-bg0:                                      #0b1e35; 
+$night-bg1:                                      #09233d; 
+$night-bg2:                                      #223a51;
+$night-bg3:                                      #344a5f;
+$night-bg4:                                      #516478;
+
+// 表格颜色
+$table-head-bg:                                  #09233d;   //表头背景色
+$table-head-bc:                                  #103c69;   //表头边框颜色
+$table-tr-hover:                                 #667d96;   //列聚焦颜色
+
+// 字体颜色
+$font-color-title:                               #ffffff;     //标题
+$font-color-text:                                #ffffff;     //正文
+$font-color-minor:                               #7f787a;     //辅助说明
+
+
+
 
 // 字体颜色
 $text-color-title:                               #303133;     //标题

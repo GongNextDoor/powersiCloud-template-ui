@@ -42,16 +42,6 @@ import BusinessTogether from '@/router/BusinessTogether'
  */
 export const constantRoutes = [
   {
-    path: '/login',
-    component: () => import('@/views/login/index'),
-    hidden: true
-  },
-  {
-    path: '/auth-redirect',
-    component: () => import('@/views/login/auth-redirect'),
-    hidden: true
-  },
-  {
     path: '/404',
     component: () => import('@/views/error-page/404'),
     hidden: true
@@ -64,18 +54,17 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/demo',
     children: [
       {
-        path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
-        name: 'Dashboard',
-        meta: { title: '首页', icon: 'home', affix: true }
+        path: 'demo',
+        component: () => import('@/views/demo/index'),
+        name: 'demo',
+        meta: { title: 'demo', icon: 'home', affix: true }
       }
     ]
   },
   ...BusinessTogether
-  // BusinessTogether
 ]
 
 /**
