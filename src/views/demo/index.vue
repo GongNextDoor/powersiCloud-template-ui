@@ -10,7 +10,7 @@
             <el-input v-model="formInline.user" placeholder="placeholder" />
           </el-form-item>
           <el-form-item label="lable：">
-            <el-select v-model="formInline.region" placeholder="placeholder">
+            <el-select v-model="formInline.region" placeholder="placeholder" clearable>
               <el-option label="select1" value="1" />
               <el-option label="select2" value="2" />
             </el-select>
@@ -77,6 +77,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .tableHight {
-    height: calc(100% - 110px);
+    height: calc(100% - 102px);
   }
 </style>

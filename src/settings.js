@@ -1,6 +1,4 @@
 module.exports = {
-  title: '和宇云开发模板',
-
   /**
    * @type {boolean} true | false
    * @description Whether show the settings right-panel

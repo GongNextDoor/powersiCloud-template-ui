@@ -7,7 +7,6 @@
   .el-input__inner {
     height: 26px;
     line-height: 26px;
-    border-radius: 0;
     border: none;
     padding: 0 8px;
   }
@@ -21,8 +20,12 @@
   .el-form-item {
     margin-bottom: 0px;
     .el-form-item__label {
+      line-height: 26px;
       font-size: 12px;
       padding: 0;
+    }
+    .el-form-item__content {
+      line-height: 26px;
     }
   }
 }
@@ -44,137 +47,5 @@
       height: 34px;
       line-height: 34px;
     }
-  }
-}
-
-// 分页
-.el-pagination {
-  position: relative;
-  padding: 10px 5px 0;
-  text-align: right;
-
-  .el-pager li {
-    color: $text-color-title;
-    border: 1px solid transparent;
-    border-radius: 4px;
-
-    &.active {
-      background-color: $--primary-blue;
-      color: #fff;
-
-      &:hover {
-        color: #fff;
-      }
-
-      +li {
-        border-left: 1px solid transparent;
-      }
-    }
-
-    &:hover {
-      color: #1B65B9;
-      border: 1px solid #5C91CD;
-    }
-  }
-
-  span:not([class*=suffix]),
-  button {
-    height: 24px;
-    line-height: 24px;
-  }
-
-  .el-input__suffix {
-    height: auto;
-    top: -2px;
-  }
-
-
-  .el-pager li {
-    width: 24px;
-    min-width: auto;
-    height: 24px;
-    line-height: 24px;
-  }
-
-  .el-pagination__total {
-    float: left;
-  }
-
-  .el-pagination__sizes {
-    position: absolute !important;
-    right: 125px !important;
-    top: 10px !important;
-  }
-
-  .el-pagination__jump {
-    margin-left: 150px !important;
-
-    .el-input__inner {
-      height: 24px;
-      line-height: 24px;
-    }
-  }
-}
-
-.el-loading-mask {
-  background-color: rgba(255, 255, 255, .7);
-}
-
-.el-loading-spinner {
-  &::after {
-    content: '加载中...';
-    position: absolute;
-    top: 115%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-// Loading 加载
-.el-loading1 {
-  position: relative;
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  background-image: url(../assets/loading1.png);
-  background-size: cover;
-
-}
-
-.el-loading2 {
-  position: relative;
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-  background-image: url(../assets/loading2.png);
-  background-size: cover;
-}
-
-.el-loading3 {
-  position: relative;
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background-image: url(../assets/loading3.png);
-  background-size: cover;
-}
-
-.el-loading-spinner .el-loading-text {
-  color: #333333;
-}
-
-.el-loading1,
-.el-loading2,
-.el-loading3 {
-  animation: rotating 2s linear infinite
-}
-
-@keyframes rotating {
-  from {
-    transform: rotate(0deg)
-  }
-
-  to {
-    transform: rotate(1turn)
   }
 }
