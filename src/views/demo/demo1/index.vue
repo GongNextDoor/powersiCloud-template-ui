@@ -1,5 +1,5 @@
 <template>
-  <div class="night">
+  <div class="night isTabsMenu">
     <div class="box box-top">
       <el-button class="btn-dark" type="primary"><i class="fa fa-plus" />新增按钮</el-button>
     </div>
