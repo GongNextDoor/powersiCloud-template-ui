@@ -2,7 +2,7 @@
   <div class="night isTabsMenu">
     <div class="dm2">
       <div class="dm2-left">
-        <titleMenu type="dark" title="标题" />
+        <titleMenu type="dark" title="标题">1</titleMenu>
       </div>
       <div class="dm2-right">
         <div class="dm2-content">

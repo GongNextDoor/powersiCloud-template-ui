@@ -2,14 +2,7 @@
   <div class="titleMenu" :class="type">
     <div class="tm-header">{{ title }}</div>
     <div class="tm-body">
-      <!-- <el-menu default-active="1">
-        <el-menu-item index="1">
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-          <span slot="title">导航四</span>
-        </el-menu-item>
-      </el-menu> -->
+      <slot />
     </div>
   </div>
 </template>
