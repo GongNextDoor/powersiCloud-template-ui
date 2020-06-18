@@ -45,7 +45,7 @@ textarea {
 .fa {
   margin-right: 5px;
 }
-
+// 非弹窗页面第一个标签添加此class
 .night {
   color: $font-color-text;
   height: 100%;
@@ -61,6 +61,36 @@ textarea {
       color: $font-color-text;
     }
     input::-webkit-input-placeholder {
+      color: $font-color-placeholder;
+    }
+  }
+  // textarea
+  .el-textarea {
+    .el-textarea__inner {
+      color: $font-color-text;
+      background-color: $night-bg4;
+    }
+    textarea::-webkit-input-placeholder {
+      color: $font-color-placeholder;
+    }
+  }
+  // checkbox
+  .el-checkbox {
+    color: $font-color-text
+  }
+  // radio
+  .el-radio {
+    color: $font-color-text
+  }
+  // date-editor
+  .el-date-editor {
+    color: $font-color-text;
+    background-color: $night-bg4;
+    .el-range-input {
+      color: $font-color-text;
+      background-color: $night-bg4;
+    }
+    .el-range-separator {
       color: $font-color-placeholder;
     }
   }
@@ -100,12 +130,21 @@ textarea {
       }
     }
   }
+  // tabs
+  .el-tabs {
+    .el-tabs__nav-wrap::after {
+      background-color: #ffffff33;
+    }
+    .el-tabs__item {
+      color: $font-color-text;
+    }
+  }
 }
-
+// 有tabMenu时在页面第一个标签添加此class
 .isTabsMenu {
   height: calc(100% - 70px);
 }
-
+// 黑色按钮
 .btn-dark {
   background-color: $night-bg1;
   border-color: $night-bg1;
@@ -114,6 +153,7 @@ textarea {
     border-color: $night-bg0;
   }
 }
+// 搜索按钮
 .btn-search {
   height: 24px;
   line-height: 2px;

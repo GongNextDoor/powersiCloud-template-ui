@@ -4,7 +4,7 @@
       <el-button class="btn-dark" type="primary"><i class="fa fa-plus" />新增按钮</el-button>
     </div>
     <div class="box">
-      <el-form>
+      <el-form style="margin-top:10px">
         <el-form inline :model="formInline">
           <el-form-item label="lable：">
             <el-input v-model="formInline.user" placeholder="placeholder" />
@@ -77,6 +77,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .tableHight {
-    height: calc(100% - 102px);
+    height: calc(100% - 128px);
   }
 </style>

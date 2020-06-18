@@ -1,82 +1,65 @@
 <template>
   <div class="night isTabsMenu">
-    <div class="box box-top">
-      <el-button class="btn-dark" type="primary"><i class="fa fa-plus" />新增按钮</el-button>
-    </div>
-    <div class="box">
-      <el-form>
-        <el-form inline :model="formInline">
-          <el-form-item label="lable：">
-            <el-input v-model="formInline.user" placeholder="placeholder" />
-          </el-form-item>
-          <el-form-item label="lable：">
-            <el-select v-model="formInline.region" placeholder="placeholder" clearable>
-              <el-option label="select1" value="1" />
-              <el-option label="select2" value="2" />
-            </el-select>
-          </el-form-item>
-          <el-form-item>
-            <el-button class="btn-search" type="primary"><i class="fa fa-search" />查询</el-button>
-          </el-form-item>
-        </el-form>
-      </el-form>
-    </div>
-    <div class="box box-bottom tableHight">
-      <List height="100%" size="mini" :is-border="true" :is-configheader="false" :columns="tableColumns" :operates="tableOperates" :data="tableData" />
+    <div class="dm2">
+      <div class="dm2-left">
+        <titleMenu type="dark" title="标题" />
+      </div>
+      <div class="dm2-right">
+        <div class="dm2-content">
+          <el-tabs v-model="activeName">
+            <el-tab-pane label="tab1" name="first">
+              <demo-form />
+            </el-tab-pane>
+            <el-tab-pane label="tab2" name="second">tab2</el-tab-pane>
+            <el-tab-pane label="tab3" name="third">tab3</el-tab-pane>
+          </el-tabs>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import titleMenu from '@/views/components/titleMenu/index'
+import form from './components/form'
 export default {
+  components: {
+    titleMenu,
+    'demo-form': form
+  },
   data() {
     return {
-      formInline: {
-        user: '',
-        region: ''
-      },
-      tableData: [
-        { a: 'a', b: 'b', c: 'c' }
-      ],
-      tableOperates: {
-        fixed: 'right',
-        width: '90px',
-        list: [
-          { show: true, label: '删除', type: 'text', method: (key, row, index) => { this.handleConfirm() } }
-        ]
-      },
-      tableColumns: [
-        { label: 'column', prop: 'a', sortable: true, align: 'center' },
-        { label: 'column', prop: 'b', sortable: true, align: 'center' },
-        { label: 'column', prop: 'c', sortable: true, align: 'center' }
-      ]
+      activeName: 'first'
     }
   },
   mounted() {
 
   },
   methods: {
-    // 成功提醒
-    handleSuccess() {
-      this.$msgSuccess('操作成功')
-    },
-    // 失败提醒
-    handleError() {
-      this.$msgError('操作失败')
-    },
-    // 确认框
-    handleConfirm() {
-      this.$msgConfirm('是否删除？').then(res => {
-        this.$msgSuccess(res)
-      }).catch(err => {
-        this.$msgInfo(err)
-      })
-    }
   }
 }
 </script>
 <style lang="scss" scoped>
-  .tableHight {
-    height: calc(100% - 102px);
+  .dm2 {
+    height: 100%;
+    width: 100%;
+    .dm2-left {
+      height: 100%;
+      width: 22%;
+      float: left;
+      margin-right: 10px;
+    }
+    .dm2-right {
+      height: 100%;
+      float: right;
+      width: calc(78% - 10px);
+    }
+  }
+  .dm2-content {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #344a5f;
+    padding: 10px;
   }
 </style>

@@ -59,7 +59,6 @@ export const constantRoutes = [
   {
     path: '/demo',
     component: Layout,
-    meta: { title: 'nginx实例', icon: 'icon' },
     name: 'demo',
     redirect: '/demo/demo1',
     children: [
@@ -67,13 +66,13 @@ export const constantRoutes = [
         path: 'demo1',
         component: () => import('@/views/demo/demo1/index'),
         name: 'demo1',
-        meta: { title: '实例1', affix: true }
+        meta: { title: '示例1', affix: true }
       },
       {
         path: 'demo2',
         component: () => import('@/views/demo/demo2/index'),
         name: 'demo2',
-        meta: { title: '实例2', affix: true }
+        meta: { title: '示例2', affix: true }
       }
     ]
   },
