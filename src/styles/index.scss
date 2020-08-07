@@ -34,6 +34,9 @@ textarea {
   margin-bottom: 4px;
   border-radius: 3px;
   box-sizing: border-box;
+  .el-form-item {
+    margin-bottom: 5px;
+  }
 }
 .box-top {
   border-top: 3px solid $--color-primary;
@@ -76,11 +79,45 @@ textarea {
   }
   // checkbox
   .el-checkbox {
-    color: $font-color-text
+    color: $font-color-text;
+    .el-checkbox__input {
+      .el-checkbox__inner {
+        background-color: $night-bg4;
+      }
+    }
+    .el-checkbox__input.is-checked {
+      .el-checkbox__inner {
+        background-color: $--color-primary;
+      }
+    }
   }
   // radio
   .el-radio {
-    color: $font-color-text
+    color: $font-color-text;
+    .el-radio__input {
+      .el-radio__inner {
+        background-color: $night-bg4;
+      }
+    }
+    .el-radio__input.is-checked {
+      .el-radio__inner {
+        background-color: $--color-primary;
+      }
+    }
+  }
+  // switch
+  .el-switch {
+    .el-switch__core {
+      background-color: $night-bg4;
+      // &::after {
+      //   background-color: $night-bg3;
+      // }
+    }
+    &.is-checked {
+      .el-switch__core {
+        background-color: $--color-primary;
+      }
+    }
   }
   // date-editor
   .el-date-editor {
@@ -142,7 +179,7 @@ textarea {
 }
 // 有tabMenu时在页面第一个标签添加此class
 .isTabsMenu {
-  height: calc(100% - 70px);
+  height: calc(100% - 50px);
 }
 // 黑色按钮
 .btn-dark {

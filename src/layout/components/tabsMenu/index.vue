@@ -68,7 +68,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   .tabsMenu {
-    height: 60px !important;
+    height: 40px !important;
     margin-bottom: 10px;
     .el-menu.el-menu--horizontal {
       border-bottom: none;
