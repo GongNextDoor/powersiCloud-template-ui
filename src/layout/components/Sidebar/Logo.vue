@@ -2,12 +2,13 @@
   <div class="sidebar-logo-container" :class="{'collapse':collapse}">
     <transition name="sidebarLogoFade">
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
-        <img v-if="logo" src="../../../assets/img/logo.svg" class="sidebar-logo">
+        <img v-if="logo" :src="logo" class="sidebar-logo">
         <h1 v-else class="sidebar-title">{{ title }} </h1>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img v-if="logo" src="../../../assets/img/logo.svg" class="sidebar-logo">
-        <h1 class="sidebar-title">{{ title }} </h1>
+        <img v-if="logo" src="../../../assets/img/logo.png" class="logo">
+
+        <!-- <h1 class="sidebar-title">{{ title }} </h1> -->
       </router-link>
     </transition>
   </div>
@@ -24,7 +25,7 @@ export default {
   },
   data() {
     return {
-      title: '业务辅助子系统',
+      title: 'Vue Admin Template',
       logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
     }
   }
@@ -44,11 +45,10 @@ export default {
 .sidebar-logo-container {
   position: relative;
   width: 100%;
-  height: $navbar;
-  line-height: $navbar;
-  background: $sidebarLogoBg;
-  text-align: center;
-  overflow: hidden;
+  padding: 22px 0 0 27px;
+  background-color: rgba(7, 34, 62, 0.8);
+  // text-align: center;
+
   & .sidebar-logo-link {
     height: 100%;
     width: 100%;
@@ -63,7 +63,7 @@ export default {
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      color: $navIconColor;
+      color: #fff;
       font-weight: 600;
       line-height: 50px;
       font-size: 14px;
@@ -76,6 +76,10 @@ export default {
     .sidebar-logo {
       margin-right: 0px;
     }
+  }
+
+  .logo {
+    height: 41px;
   }
 }
 </style>
