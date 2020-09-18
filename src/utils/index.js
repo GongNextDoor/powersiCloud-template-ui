@@ -1,5 +1,5 @@
 /**
- * Created by PanJiaChen on 16/11/18.
+ * 这里放了常用的函数
  */
 
 /**

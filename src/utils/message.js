@@ -1,3 +1,7 @@
+/**
+ * 这里放了封装的几个element的提示组件
+ */
+
 import { MessageBox, Message } from 'element-ui'
 
 /**
