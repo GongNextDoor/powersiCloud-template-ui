@@ -70,6 +70,10 @@ export default {
   line-height: 50px;
   margin-left: 8px;
 
+  /deep/ .el-breadcrumb__inner a {
+    color: #888;
+  }
+
   .no-redirect {
     color: #eee;
     cursor: text;

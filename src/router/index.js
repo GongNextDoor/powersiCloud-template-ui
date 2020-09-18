@@ -15,19 +15,20 @@ export const constantRoutes = [
     path: '/demo',
     component: Layout,
     name: 'demo',
+    meta: { title: '示例' },
     redirect: '/demo/demo1',
     children: [
       {
         path: 'demo1',
         component: () => import('@/views/demo/demo1/index'),
         name: 'demo1',
-        meta: { title: '示例1', affix: true }
+        meta: { title: '示例1' }
       },
       {
         path: 'demo2',
         component: () => import('@/views/demo/demo2/index'),
         name: 'demo2',
-        meta: { title: '示例2', affix: true }
+        meta: { title: '示例2' }
       }
     ]
   }

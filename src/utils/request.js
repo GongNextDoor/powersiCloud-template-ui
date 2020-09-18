@@ -2,16 +2,16 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 import store from '@/store'
 import { getToken } from '@/utils/auth'
+
 axios.defaults.withCredentials = true
-// create an axios instance
-var productionUrl = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname.split('/')[1] + ''
+var productionUrl = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname.split('/')[1] + 'power-xxx-server'
 const service = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? productionUrl : process.env.VUE_APP_BASE_API_SERVERSGROUP,
-  // baseURL: 'http://172.18.40.40:20001/power-lbs-server/',
+  // baseURL: 'http://172.18.40.40:20001/power-xxx-server/',
   timeout: 10000
 })
 
-// request interceptor
+// request过滤器
 service.interceptors.request.use(
   config => {
     if (store.getters.token) {
@@ -24,7 +24,7 @@ service.interceptors.request.use(
   }
 )
 
-// response interceptor
+// response过滤器
 service.interceptors.response.use(
   response => {
     const res = response.data

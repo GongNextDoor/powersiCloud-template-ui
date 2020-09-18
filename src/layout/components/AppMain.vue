@@ -43,7 +43,9 @@ export default {
 .app-main {
   width: 100%;
   height: 100%;
+  padding: 10px;
   position: relative;
   overflow: auto;
+  box-sizing: border-box;
 }
 </style>
