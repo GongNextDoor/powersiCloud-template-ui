@@ -1,12 +1,11 @@
 import axios from 'axios'
+import qs from 'qs'
 import { Message } from 'element-ui'
-import store from '@/store'
-import { getToken } from '@/utils/auth'
 
 axios.defaults.withCredentials = true
 var productionUrl = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname.split('/')[1] + 'power-xxx-server'
 const service = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? productionUrl : process.env.VUE_APP_BASE_API_SERVERSGROUP,
+  baseURL: process.env.NODE_ENV === 'production' ? productionUrl : process.env.VUE_APP_BASE_API,
   // baseURL: 'http://172.18.40.40:20001/power-xxx-server/',
   timeout: 10000
 })
@@ -14,9 +13,6 @@ const service = axios.create({
 // request过滤器
 service.interceptors.request.use(
   config => {
-    if (store.getters.token) {
-      config.headers['X-Token'] = getToken()
-    }
     return config
   },
   error => {
@@ -62,4 +58,47 @@ service.interceptors.response.use(
   }
 )
 
-export default service
+/**
+ * 这里进一步封装了axios的各种常见请求，如果有接口胡乱接值的情况就直接用service手动写值吧
+ */
+export default {
+  service: service,
+  get: (url, params) => {
+    return service({
+      url: url,
+      method: 'get',
+      params
+    })
+  },
+  post: (url, data) => {
+    return service({
+      url: url,
+      method: 'post',
+      data
+    })
+  },
+  formData: (url, data) => {
+    return service({
+      url: url,
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: qs.stringify(data)
+    })
+  },
+  put: (url, data) => {
+    return service({
+      url: url,
+      method: 'put',
+      data
+    })
+  },
+  delete: (url, data) => {
+    return service({
+      url: url,
+      method: 'delete',
+      data
+    })
+  }
+}

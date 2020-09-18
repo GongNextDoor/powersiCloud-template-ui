@@ -23,12 +23,12 @@ module.exports = {
       errors: true
     },
     proxy: {
-      '/api': {
-        target: 'http://172.18.40.40:20001/powersi/',
+      '/dev-api': {
+        target: 'http://172.18.40.40:20001/powersi',
         ws: true,
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/dev-api': ''
         }
       }
     }

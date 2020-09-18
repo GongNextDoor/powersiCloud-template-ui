@@ -47,7 +47,6 @@ export default {
   width: 100%;
   padding: 22px 0 0 27px;
   background-color: rgba(7, 34, 62, 0.8);
-  // text-align: center;
 
   & .sidebar-logo-link {
     height: 100%;

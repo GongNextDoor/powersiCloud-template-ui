@@ -59,7 +59,7 @@ export default {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    background-color: #344a5f;
+    background-color: $night-bg3;
     padding: 10px;
   }
 </style>

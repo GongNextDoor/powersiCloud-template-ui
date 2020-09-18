@@ -1,13 +1,18 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
-    <sidebar class="sidebar-container" />
-    <div class="main-container">
-      <navbar />
-      <div class="main-app">
-        <app-main />
+    <section v-if="haveLayout">
+      <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+      <sidebar class="sidebar-container" />
+      <div class="main-container">
+        <navbar />
+        <div class="main-app">
+          <app-main />
+        </div>
       </div>
-    </div>
+    </section>
+    <section v-else>
+      <app-main />
+    </section>
   </div>
 </template>
 
@@ -23,6 +28,11 @@ export default {
     AppMain
   },
   mixins: [ResizeMixin],
+  data() {
+    return {
+      haveLayout: process.env.VUE_APP_LAYOUT === 'show' ? Boolean(true) : Boolean(false)
+    }
+  },
   computed: {
     sidebar() {
       return this.$store.state.app.sidebar
@@ -37,6 +47,15 @@ export default {
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
       }
+    }
+  },
+  mounted() {
+    if (process.env.VUE_APP_LAYOUT === 'show') {
+      document.addEventListener('keydown', e => {
+        if (e.code === 'Escape') {
+          this.haveLayout = !this.haveLayout
+        }
+      })
     }
   },
   methods: {
@@ -56,6 +75,9 @@ export default {
     position: relative;
     height: 100%;
     width: 100%;
+    section {
+      height: 100%;
+    }
     &.mobile.openSidebar{
       position: fixed;
       top: 0;

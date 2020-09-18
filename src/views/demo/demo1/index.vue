@@ -22,7 +22,17 @@
       </el-form>
     </div>
     <div class="box bottom">
-      <List height="100%" size="mini" :is-border="true" :is-configheader="false" :columns="tableColumns" :operates="tableOperates" :data="tableData" />
+      <!-- <MyTableView
+        :columns="tableColumns"
+        :have-pagination="false"
+        :data="tableData"
+      >
+        <template slot="operation" slot-scope="scope">
+          <div class="operate_box">
+            <el-button type="text" @click="handleConfirm(scope.row)">删除</el-button>
+          </div>
+        </template>
+      </MyTableView> -->
     </div>
   </div>
 </template>
@@ -38,22 +48,12 @@ export default {
       tableData: [
         { a: 'a', b: 'b', c: 'c' }
       ],
-      tableOperates: {
-        fixed: 'right',
-        width: '90px',
-        list: [
-          { show: true, label: '删除', type: 'text', method: (key, row, index) => { this.handleConfirm() } }
-        ]
-      },
       tableColumns: [
         { label: 'column', prop: 'a', sortable: true, align: 'center' },
         { label: 'column', prop: 'b', sortable: true, align: 'center' },
         { label: 'column', prop: 'c', sortable: true, align: 'center' }
       ]
     }
-  },
-  mounted() {
-
   },
   methods: {
     // 成功提醒
