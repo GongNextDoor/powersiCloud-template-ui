@@ -19,11 +19,7 @@ export default {
     }
   },
   watch: {
-    $route(route) {
-      // if you go to the redirect page, do not update the breadcrumbs
-      if (route.path.startsWith('/redirect/')) {
-        return
-      }
+    $route() {
       this.getBreadcrumb()
     }
   },
@@ -71,11 +67,11 @@ export default {
 .app-breadcrumb.el-breadcrumb {
   display: inline-block;
   font-size: 14px;
-  line-height: $navbar;
+  line-height: 50px;
   margin-left: 8px;
 
   .no-redirect {
-    color: #97a8be;
+    color: #eee;
     cursor: text;
   }
 }

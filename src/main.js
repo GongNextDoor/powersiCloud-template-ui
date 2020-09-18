@@ -18,29 +18,16 @@ import store from './store'
 import router from './router'
 
 import './icons' // icon
-import './permission' // permission control
-import './utils/error-log' // error log
-
-import * as filters from './filters' // global filters
 
 import { handleConfirm, msgSuccess, msgError } from './utils/message'
-// import vueSticky from './directive/sticky'
-// 全局方法挂载
 Vue.prototype.$msgSuccess = msgSuccess
-
 Vue.prototype.$msgError = msgError
-
 Vue.prototype.$msgConfirm = handleConfirm
 Vue.prototype.$msgInfo = function(msg) {
   this.$message.info(msg)
 }
 Vue.use(Element, {
   size: Cookies.get('size') || 'small' // set element-ui default size
-})
-
-// register global utility filters
-Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key])
 })
 
 Vue.config.productionTip = false
