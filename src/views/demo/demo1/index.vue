@@ -1,10 +1,10 @@
 <template>
   <div class="night isTabsMenu">
-    <div class="box box-top">
+    <div class="box top">
       <el-button class="btn-dark" type="primary"><i class="fa fa-plus" />新增按钮</el-button>
     </div>
     <div class="box">
-      <el-form style="margin-top:5px">
+      <el-form>
         <el-form inline :model="formInline">
           <el-form-item label="lable：">
             <el-input v-model="formInline.user" placeholder="placeholder" />
@@ -21,7 +21,7 @@
         </el-form>
       </el-form>
     </div>
-    <div class="box box-bottom tableHight">
+    <div class="box bottom">
       <List height="100%" size="mini" :is-border="true" :is-configheader="false" :columns="tableColumns" :operates="tableOperates" :data="tableData" />
     </div>
   </div>
@@ -75,8 +75,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-  .tableHight {
-    height: calc(100% - 119px);
-  }
-</style>

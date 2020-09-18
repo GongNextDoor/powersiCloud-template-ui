@@ -47,6 +47,10 @@
   .el-form-item {
     .el-form-item__label {
       font-size: 12px;
+      line-height: 26px;
+    }
+    .el-form-item__content {
+      line-height: 26px;
     }
   }
 }
@@ -54,12 +58,15 @@
 // 覆盖input样式
 .el-input {
   font-size: 12px;
-  border-radius: 2px;
+  height: 26px;
   .el-input__inner {
+    border-radius: 2px;
     padding: 0 8px;
+    line-height: 26px;
+    height: 26px;
   }
-  .el-input__suffix {
-    top: 1px;
+  .el-input__icon {
+    line-height: 26px;
   }
 }
 
@@ -73,7 +80,6 @@
 
 // 覆盖date-editor样式
 .el-date-editor {
-  border: none;
   border-radius: 2px;
   .el-range-separator {
     line-height: 26px;

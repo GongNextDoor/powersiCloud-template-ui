@@ -28,26 +28,6 @@ textarea {
   height: 100%;
 }
 
-.box {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 4px;
-  border-radius: 3px;
-  box-sizing: border-box;
-  .el-form-item {
-    margin-bottom: 5px;
-  }
-}
-.box-top {
-  border-top: 3px solid $--color-primary;
-}
-.box-bottom {
-  margin-bottom: 0;
-}
-
-.fa {
-  margin-right: 5px;
-}
 // 非弹窗页面第一个标签添加此class
 .night {
   color: $font-color-text;
@@ -62,6 +42,7 @@ textarea {
     .el-input__inner {
       background-color: $night-bg4;
       color: $font-color-text;
+      border: none;
     }
     input::-webkit-input-placeholder {
       color: $font-color-placeholder;
@@ -72,6 +53,7 @@ textarea {
     .el-textarea__inner {
       color: $font-color-text;
       background-color: $night-bg4;
+      border: none;
     }
     textarea::-webkit-input-placeholder {
       color: $font-color-placeholder;
@@ -82,7 +64,12 @@ textarea {
     color: $font-color-text;
     .el-checkbox__input {
       .el-checkbox__inner {
+        border: none;
         background-color: $night-bg4;
+        &::after {
+          top: 2px;
+          left: 5px;
+        }
       }
     }
     .el-checkbox__input.is-checked {
@@ -96,6 +83,7 @@ textarea {
     color: $font-color-text;
     .el-radio__input {
       .el-radio__inner {
+        border: none;
         background-color: $night-bg4;
       }
     }
@@ -109,9 +97,10 @@ textarea {
   .el-switch {
     .el-switch__core {
       background-color: $night-bg4;
-      // &::after {
-      //   background-color: $night-bg3;
-      // }
+      border: none;
+      &::after {
+        top: 2px;
+      }
     }
     &.is-checked {
       .el-switch__core {
@@ -121,6 +110,7 @@ textarea {
   }
   // date-editor
   .el-date-editor {
+    border: none;
     color: $font-color-text;
     background-color: $night-bg4;
     .el-range-input {
@@ -177,50 +167,64 @@ textarea {
     }
   }
 }
+
+.box {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  &+& {
+    margin-top: 4px;
+  }
+  &.top {
+    border-top: 3px solid $--color-primary;
+  }
+  &.bottom {
+    height: calc(100% - 102px);
+  }
+  .el-form-item {
+    margin-bottom: 0;
+  }
+}
+.fa {
+  margin-right: 5px;
+}
 // 有tabMenu时在页面第一个标签添加此class
 .isTabsMenu {
   height: calc(100% - 50px);
 }
 // 黑色按钮
 .btn-dark {
-  background-color: $night-bg1;
-  border-color: $night-bg1;
-  &:hover {
-    background-color: $night-bg0;
-    border-color: $night-bg0;
+  background-color: $night-bg1 !important;
+  border-color: $night-bg1 !important;
+  &:active {
+    opacity: .8;
   }
 }
 // 搜索按钮
 .btn-search {
-  height: 24px;
+  height: 23px;
   line-height: 2px;
   i {
     line-height: 2px;
   }
 }
-
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+// 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸
 ::-webkit-scrollbar {
   width: 8px;
-  height: 8px
+  height: 8px;
 }
-/*定义滚动条轨道*/
+// 定义滚动条轨道
 ::-webkit-scrollbar-track {
   background-color: transparent;
   -webkit-border-radius: 2em;
   -moz-border-radius: 2em;
   border-radius: 2em
 }
-/*定义滑块 内阴影+圆角*/
+// 定义滑块 内阴影+圆角
 ::-webkit-scrollbar-thumb {
-  background-color: #c0c4cc;
-  // background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.4) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.4) 75%,transparent 75%,transparent);
+  background-color: #8799adaa;
   -webkit-border-radius: 2em;
   -moz-border-radius: 2em;
   border-radius: 2px;
-}
-// 调整elementui中弹出框中确定和取消按钮的位置
-.btn-custom-cancel {
-  float: right;
-  margin-left: 10px;
 }
