@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     computeClass(index) {
-      if (this.operationConfig.operations < 2) {
+      if (this.operationConfig.operations.length < 2) {
         return ''
       }
       if (index === 0) {
