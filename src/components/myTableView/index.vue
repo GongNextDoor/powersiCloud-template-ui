@@ -128,7 +128,7 @@ export default {
     border: { type: Boolean, default: true },
     haveExpand: { type: Boolean, default: false }, // Table 展开行功能
     checboxMin: { type: [String, Number], default: 7 }, // 头部显示的最小数量
-    isConfigheader: { type: Boolean, default: true }, // 是否显示编辑表头按钮
+    isConfigheader: { type: Boolean, default: false }, // 是否显示编辑表头按钮
     highlightCurrentRow: { type: Boolean, default: true }, // 当前行高亮
     firstHighlight: { type: Boolean, default: false }, //  默认第一行高亮
     havePagination: { type: Boolean, default: true }, // 表格下是否有分页
