@@ -192,6 +192,18 @@ body {
   &:active {
     opacity: .8;
   }
+  &+& {
+    margin-left: 0px;
+  }
+  &.group-left {
+    border-radius: 4px 0 0 4px;
+  }
+  &.group-center {
+    border-radius: 0;
+  }
+  &.group-right {
+    border-radius: 0 4px 4px 0;
+  }
 }
 // 搜索按钮
 .btn-search {
