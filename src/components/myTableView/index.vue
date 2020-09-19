@@ -4,6 +4,14 @@ el-table-column 传参请查看table-column.vue文件
  -->
 <template>
   <section :class="['pf-table', sectionHeight ]">
+    <!-- 表头配置组件 -->
+    <header-config
+      v-if="isConfigheader && columns.length > 5"
+      v-model="columnsNew"
+      :all-colums="expandHandleFinishColumns"
+      :min="checboxMin"
+      @change="headerCheckboxChange"
+    />
     <!-- 表格 -->
     <el-table
       ref="pf-table"
@@ -15,6 +23,7 @@ el-table-column 传参请查看table-column.vue文件
       style="width: 100%"
       :highlight-current-row="highlightCurrentRow"
       :summary-method="getSummaries"
+      :header-cell-style="headerCellStyle"
       v-on="$listeners"
       @row-click="rowClick"
       @selection-change="handleSelectionChange"
@@ -39,7 +48,7 @@ el-table-column 传参请查看table-column.vue文件
       </template>
 
       <!-- 表格内容部分 -->
-      <template v-for="item in columns">
+      <template v-for="item in columnsNew">
         <!-- 多选框 -->
         <el-table-column
           v-if="item.type == 'selection'"
@@ -79,7 +88,7 @@ el-table-column 传参请查看table-column.vue文件
           v-else
           :key="item.label + item.prop"
           :item="item"
-          :min-width="item.minWidth"
+          :min-width="item.minWidth|| ''"
         >
           <!-- 操作插槽 -->
           <template v-if="item.type == 'operation'" slot="operation" slot-scope="scope">
@@ -99,18 +108,18 @@ el-table-column 传参请查看table-column.vue文件
 </template>
 
 <script>
-// import TableColumn from './table-column'
-// import TableExpand from './table-expand'
-// import TableSummaries from './table-summaries'
-// import HeaderConfig from './headerConfig'
-// import { deepClone } from '@/utils'
+import TableColumn from './table-column'
+import TableExpand from './table-expand'
+import TableSummaries from './table-summaries'
+import HeaderConfig from './headerConfig'
+import { deepClone } from '@/utils'
 
 export default {
   components: {
-    // TableColumn,
-    // HeaderConfig
+    TableColumn,
+    HeaderConfig
   },
-  // mixins: [TableExpand, TableSummaries],
+  mixins: [TableExpand, TableSummaries],
   props: {
     data: { type: [Array, Object], default: () => [] }, // 列表数据
     columns: { type: Array, default: () => [] },
@@ -118,9 +127,14 @@ export default {
     multipleSelection: { type: Array, default: () => [] }, // 多选 multipleSelection.sync="xxx"
     border: { type: Boolean, default: true },
     haveExpand: { type: Boolean, default: false }, // Table 展开行功能
+    checboxMin: { type: [String, Number], default: 7 }, // 头部显示的最小数量
+    isConfigheader: { type: Boolean, default: true }, // 是否显示编辑表头按钮
     highlightCurrentRow: { type: Boolean, default: true }, // 当前行高亮
     firstHighlight: { type: Boolean, default: false }, //  默认第一行高亮
     havePagination: { type: Boolean, default: true }, // 表格下是否有分页
+    headerCellStyle: { type: Object, default() {
+      return { 'text-align': 'center' }
+    } }, // 设置表头内容对齐方式
     defaultSort: { type: Object, default() { // 排序
       return {
         order: '', // ascending, descending
@@ -131,13 +145,14 @@ export default {
   },
   data() {
     return {
-
+      columnsNew: deepClone(this.columns), // 拿到表头信息之后先赋值
+      expandHandleFinishColumns: [] // 展开行处理后的表头信息
     }
   },
   computed: {
     tableHeight() {
       if (this.height === 'auto') {
-        return ''
+        return null
       } else {
         return this.height
       }
@@ -153,9 +168,9 @@ export default {
     }
   },
   watch: {
-    // columns() {
-    //   this.columnsNew = this.columns
-    // },
+    columns() {
+      this.columnsNew = this.columns
+    },
     data(newVal) {
       this.$refs['pf-table'].clearSelection() // 清除多选
       if (!Array.isArray(newVal)) { // 如果传入的值不是数组则设置为空数组
@@ -165,9 +180,9 @@ export default {
   },
   created() {
     // getHandleCloumns -> table-expand
-    // this.getHandleCloumns()
+    this.getHandleCloumns()
     // getAllCloumns -> table-summaries
-    // this.getAllCloumns()
+    this.getAllCloumns()
   },
   mounted() {
     //  设置首行高亮
@@ -178,6 +193,11 @@ export default {
     })
   },
   methods: {
+    headerCheckboxChange(val) { // 监听checkbox选择项
+      this.$nextTick(() => {
+        this.$refs['pf-table'].doLayout()
+      })
+    },
     handleSelectionChange(val) {
       this.$emit('update:multipleSelection', val)
     },
@@ -206,6 +226,12 @@ export default {
     },
     getSummaries(params) {
       if (params.columns.length > 0 && params.data.length > 0) {
+        // 查询进来的时候重载一下表格
+        setTimeout(() => {
+          this.$nextTick(() => {
+            this.$refs['pf-table'].doLayout()
+          })
+        }, 0)
         return this.getSummariesData(params)
       } else {
         return []
@@ -215,19 +241,22 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+  .pf-table{
+    width: 100%
+  }
   .height-auto {
     height: auto;
   }
   .height-100 {
     height: 100%;
   }
-  ::v-deep .el-table__empty-block{
+  /deep/.el-table__empty-block{
     min-height: 100px;
   }
-  ::v-deep .el-table__empty-text{
+  /deep/.el-table__empty-text{
     position: relative;
-    // background: #ffffff url(../../assets/nodata.png) center no-repeat;
-    // background-size: contain;
+    background: #ffffff url(../../assets/img/nodata.png) center no-repeat;
+    background-size: contain;
     // width: 100%;
     height: 80%;
     min-height: 80px;
@@ -241,5 +270,11 @@ export default {
       left: 0px;
       text-align: center;
     }
+  }
+  /deep/.el-table__body-wrapper{
+    min-height: 100px;
+  }
+  /deep/.el-table__fixed-right{
+    z-index: 1;
   }
 </style>

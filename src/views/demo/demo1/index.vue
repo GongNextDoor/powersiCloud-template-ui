@@ -1,7 +1,7 @@
 <template>
   <div class="night isTabsMenu">
     <div class="box top">
-      <el-button class="btn-dark" type="primary"><i class="fa fa-plus" />新增按钮</el-button>
+      <el-button class="btn-dark" type="primary"><i class="iconfont icon-xinzeng-copy" />新增按钮</el-button>
     </div>
     <div class="box">
       <el-form>
@@ -22,7 +22,7 @@
       </el-form>
     </div>
     <div class="box bottom">
-      <!-- <MyTableView
+      <MyTableView
         :columns="tableColumns"
         :have-pagination="false"
         :data="tableData"
@@ -32,7 +32,7 @@
             <el-button type="text" @click="handleConfirm(scope.row)">删除</el-button>
           </div>
         </template>
-      </MyTableView> -->
+      </MyTableView>
     </div>
   </div>
 </template>
