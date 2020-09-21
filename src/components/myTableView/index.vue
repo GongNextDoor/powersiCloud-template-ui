@@ -255,14 +255,14 @@ export default {
   }
   /deep/.el-table__empty-text{
     position: relative;
-    background: #ffffff url(../../assets/img/nodata.png) center no-repeat;
+    // background: #ffffff url(../../assets/img/nodata.png) center no-repeat;
     background-size: contain;
     // width: 100%;
     height: 80%;
     min-height: 80px;
     max-height: 150px;
     &::after{
-      content: '暂无内容';
+      // content: '暂无内容';
       position: absolute;
       width: 100%;
       bottom: -20px;

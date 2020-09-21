@@ -124,6 +124,10 @@ body {
     .el-form-item {
         .el-form-item__label {
           color: $font-color-text;
+          line-height: 26px;
+        }
+        .el-form-item__content {
+          line-height: 26px;
         }
     }
   }
@@ -138,6 +142,11 @@ body {
       &::before {
         width: 0;
       }
+    }
+    .el-table__fixed-right-patch {
+      background-color: $table-head-bg;
+      top: 0;
+      border-bottom: none;
     }
     th {
       background-color: $table-head-bg;
@@ -169,6 +178,10 @@ body {
     .el-tabs__item {
       color: $font-color-text;
     }
+  }
+  // loading
+  .el-loading-mask {
+    background: #344a5f88;
   }
 }
 

@@ -94,11 +94,11 @@ export default {
       data
     })
   },
-  delete: (url, data) => {
+  delete: (url, params) => {
     return service({
       url: url,
       method: 'delete',
-      data
+      params
     })
   }
 }

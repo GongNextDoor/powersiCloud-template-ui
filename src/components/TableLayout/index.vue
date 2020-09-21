@@ -4,7 +4,7 @@
       <operation :operation-config="operationConfig" />
     </div>
     <div class="box">
-      <search :search-config="searchConfig" />
+      <search ref="search" :search-config="searchConfig" />
     </div>
     <div class="box bottom">
       <slot v-if="tableConfig.type === 'custom'" :name="tableConfig.slotName" />

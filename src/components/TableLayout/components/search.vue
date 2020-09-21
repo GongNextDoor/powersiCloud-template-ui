@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     init() {
-      if (this.searchConfig.type === 'default') {
+      if (this.searchConfig.type !== 'custom') {
         this.searchConfig.form.forEach(el => {
           this.$set(this.searchForm, el.key, el.value || '')
         })

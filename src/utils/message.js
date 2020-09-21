@@ -29,7 +29,7 @@ export function msgSuccess(msg = '操作成功', type = 'success') {
   return Message({
     type: 'success',
     dangerouslyUseHTMLString: true,
-    message: `<strong>操作成功</strong><p>${msg}</p>`,
+    message: `<p>${msg}</p>`,
     duration: 1000
   })
 }
