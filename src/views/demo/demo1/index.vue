@@ -8,17 +8,22 @@
         :data="tableData"
       >
         <template slot="operation" slot-scope="scope">
-          <el-button type="text" @click="handleConfirm(scope.row)">修改</el-button>
+          <el-button type="text" @click="modify(scope.row)">修改</el-button>
           <el-button type="text" @click="handleConfirm(scope.row)">删除</el-button>
         </template>
       </MyTableView>
     </table-layout>
+    <edit :show="serveVisible" :edit-data="serveSelectRow" @update:show="editExample" @getServeTableData="getServeTableData" />
   </div>
 </template>
 
 <script>
+import edit from './components/edit'
 export default {
   name: 'ServerManage',
+  components: {
+    edit
+  },
   data() {
     return {
       operationConfig: {
@@ -36,6 +41,7 @@ export default {
         ],
         func: this.search
       },
+
       tableData: [
         { a: 'a', b: 'b', c: 'c' }
       ],
@@ -48,12 +54,23 @@ export default {
         { label: '内存（G）', prop: 'c' },
         { label: '磁盘（G）', prop: 'c' },
         { label: '操作', type: 'operation', fixed: 'right', width: '140px' }
-      ]
+      ],
+
+      serveVisible: false,
+      serveSelectRow: {}
     }
   },
   methods: {
+    getServeTableData() {
+
+    },
     add() {
-      console.log(11)
+      this.serveSelectRow = { type: 'add' }
+      this.serveVisible = true
+    },
+    modify(row) {
+      this.serveSelectRow = { type: 'modify', data: row }
+      this.serveVisible = true
     },
     refresh() {
       console.log(22)
@@ -66,6 +83,10 @@ export default {
       this.$msgConfirm('是否删除？').then(res => {
         this.$msgSuccess(res)
       })
+    },
+
+    editExample(val, b) {
+      this[val] = b
     }
   }
 }

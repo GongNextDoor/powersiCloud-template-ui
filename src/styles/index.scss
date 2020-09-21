@@ -35,6 +35,12 @@ body {
       background-color: $night-bg4;
       color: $font-color-text;
       border: none;
+      line-height: 26px;
+      height: 26px;
+      border-radius: 2px;
+    }
+    .el-input__icon {
+      line-height: 26px;
     }
     input::-webkit-input-placeholder {
       color: $font-color-placeholder;
@@ -185,7 +191,7 @@ body {
   }
 }
 .fa, .iconfont {
-  margin-right: 4px;
+  margin-right: 2px;
 }
 // 有tabMenu时在页面第一个标签添加此class
 .isTabsMenu {

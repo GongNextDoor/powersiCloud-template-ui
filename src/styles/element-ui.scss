@@ -58,15 +58,8 @@
 // 覆盖input样式
 .el-input {
   font-size: 12px;
-  height: 26px;
   .el-input__inner {
-    border-radius: 2px;
     padding: 0 8px;
-    line-height: 26px;
-    height: 26px;
-  }
-  .el-input__icon {
-    line-height: 26px;
   }
 }
 
@@ -83,5 +76,15 @@
   border-radius: 2px;
   .el-range-separator {
     line-height: 26px;
+  }
+}
+
+// 覆盖dialog样式
+.el-dialog {
+  .el-dialog__header {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .el-dialog__body {
+    padding: 30px 20px 0px 20px;
   }
 }
