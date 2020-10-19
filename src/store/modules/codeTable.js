@@ -12,10 +12,17 @@ const mutations = {
 
 const actions = {
   setCodeDicts({ commit }, code) {
-    getCodeDict({
-      code: code
-    }).then(res => {
-      commit('SET_SIZE', Object.assign(state.codeDicts, { code: res.data }))
+    return new Promise((resolve, reject) => {
+      getCodeDict({
+        dict_key: code
+      }).then(res => {
+        var codeDicts = state.codeDicts
+        codeDicts[code] = res.select2Datalist
+        commit('SET_CODEDICTS', codeDicts)
+        resolve(codeDicts)
+      }).catch(Error => {
+        reject(Error)
+      })
     })
   }
 }

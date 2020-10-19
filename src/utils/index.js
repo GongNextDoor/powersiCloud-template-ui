@@ -361,3 +361,41 @@ export function removeClass(ele, cls) {
 export function isExternal(path) {
   return /^(https?:|mailto:|tel:)/.test(path)
 }
+
+/**
+ * 模糊查询（单个输入框对应多个字段）
+ * @param {*Array} list 源数据
+ * @param {*Array} fields 要匹配的字段
+ * @param str 查询输入值
+ */
+export function fuzzyQuery(list, fields, str) {
+  var res = []
+  fields.filter(el => {
+    list.filter((ele, index) => {
+      if ((ele[el] && ele[el].toString().indexOf(str) > -1) || str === '') {
+        if (res.indexOf(ele) === -1) {
+          res.push(ele)
+        }
+      }
+    })
+  })
+  return res
+}
+
+/**
+ * 模糊查询（多个输入框对应多个字段）
+ * @param {*Array} list 源数据
+ * @param {*Array} fields 要匹配的字段
+ * @param strArr 查询输入值（要和字段一一对应）
+ */
+export function fuzzyQueryOneToOne(list, fields, strArr) {
+  var res = JSON.parse(JSON.stringify(list))
+  fields.forEach((el, i) => {
+    res.forEach((ele, ind) => {
+      if (!ele[el] || ele[el].toString().indexOf(strArr[i]) === -1) {
+        delete res[ind]
+      }
+    })
+  })
+  return res
+}

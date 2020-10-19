@@ -1,6 +1,6 @@
 <template>
   <div class="tableLayout">
-    <div class="box top">
+    <div class="box" :class="isTop && 'top'">
       <operation :operation-config="operationConfig" />
     </div>
     <div class="box">
@@ -22,6 +22,10 @@ export default {
     search
   },
   props: {
+    isTop: {
+      type: Boolean,
+      default: true
+    },
     operationConfig: {
       type: Object,
       default: () => {

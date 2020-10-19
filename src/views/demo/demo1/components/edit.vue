@@ -9,7 +9,7 @@
   >
     <form-items
       ref="form"
-      :label-width="'100px'"
+      :label-width="'60px'"
       :is-grid="false"
       :item-span="24"
       :model="form"
@@ -182,9 +182,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-.el-form {
-  padding-right: 40px;
-}
-</style>

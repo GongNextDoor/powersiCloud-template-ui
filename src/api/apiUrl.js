@@ -1,10 +1,12 @@
+import config from '@/config/index'
+
 export default {
   commonApi: {
-    getCodeDict: '/web/bdp/help/dirtree/all' // 获取字典
+    getCodeDict: `/${config.dictApiPath}/comm/biz/dict/getValues.action` // 获取字典
   },
   demoApi: {
-    get: '/web/bdp/help/dirtree/all', // get
-    post: '/web/bdp/help/dirtree/all', // post
-    formData: '/web/bdp/help/dirtree/all' // formData
+    get: `/${config.baseApiPath}/help/dirtree/all`, // get
+    post: `/${config.baseApiPath}/help/dirtree/all`, // post
+    formData: `/${config.baseApiPath}/help/dirtree/all` // formData
   }
 }

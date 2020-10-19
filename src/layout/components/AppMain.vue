@@ -2,9 +2,7 @@
   <section class="app-main">
     <tabs-menu v-if="tabsMenuFlag" />
     <transition name="fade-transform" mode="out-in">
-      <keep-alive>
-        <router-view :key="key" />
-      </keep-alive>
+      <router-view :key="key" />
     </transition>
   </section>
 </template>

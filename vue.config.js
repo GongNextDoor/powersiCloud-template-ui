@@ -24,7 +24,7 @@ module.exports = {
     },
     proxy: {
       '/dev-api': {
-        target: 'http://172.18.40.40:20001/powersi',
+        target: 'http://172.18.40.40:20001',
         ws: true,
         changeOrigin: true,
         pathRewrite: {

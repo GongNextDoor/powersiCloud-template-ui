@@ -10,12 +10,10 @@ import store from '@/store'
  * @param {强制刷新，传入true则不会从vuex里获取字典列表} isRefresh
  */
 export async function getCodeDict(code, isRefresh) {
-  if (store.state.codeTable[code] && !isRefresh) {
-    return store.state.codeTable[code]
-  } else {
+  if (!store.state.codeTable.codeDicts[code] || isRefresh) {
     await store.dispatch('codeTable/setCodeDicts', code)
-    return store.state.codeTable[code]
   }
+  return
 }
 
 /**
@@ -24,20 +22,12 @@ export async function getCodeDict(code, isRefresh) {
  * @param {*} key
  * @param {强制刷新，传入true则不会从vuex里获取字典列表} isRefresh
  */
-export async function dictTranslate(code, key, isRefresh) {
-  var arr = []
-  if (store.state.codeTable[code] && !isRefresh) {
-    arr = store.state.codeTable[code]
-  } else {
-    await store.dispatch('codeTable/setCodeDicts', code)
-    arr = store.state.codeTable[code]
-  }
-  var name = ''
+export function dictTranslate(arr, key) {
+  var value = ''
   for (var el of arr) {
-    if (el.dictValueCode === code) {
-      name = el.dictValueName
-      break
+    if (el.id.toString() === key.toString()) {
+      value = el.text
+      return value
     }
   }
-  return name
 }

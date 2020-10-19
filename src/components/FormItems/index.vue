@@ -34,7 +34,9 @@
               clearable
               :placeholder="item.placeholder || '请输入'"
               v-on="item.events || {}"
-            />
+            >
+              <template v-if="item.unit" slot="append">{{ item.unit }}</template>
+            </el-input>
           </template>
 
           <template v-else-if="item.type === 'number'">
@@ -93,10 +95,10 @@
                   :value="item.valueKey ? obj[item.valueKey] : obj.value"
                 />
               </template>
-              <template v-else>
+              <!-- <template v-else>
                 <el-option label="选项1" value="1" />
                 <el-option label="选项2" value="2" />
-              </template>
+              </template> -->
             </el-select>
           </template>
 
