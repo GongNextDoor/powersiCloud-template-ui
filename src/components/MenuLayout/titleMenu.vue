@@ -1,5 +1,5 @@
 <template>
-  <div class="titleMenu" :class="type">
+  <div class="titleMenu dark">
     <div class="tm-header">{{ title }}</div>
     <div class="tm-body">
       <slot />
@@ -11,24 +11,11 @@
 export default {
   name: 'TitleMenu',
   props: {
-    type: {
-      type: String,
-      default: 'dark'
-    },
     title: {
       type: String,
       default: ''
     }
-  },
-  data() {
-    return {
-
-    }
-  },
-  methods: {
-
   }
-
 }
 </script>
 
@@ -44,10 +31,11 @@ export default {
     box-sizing: border-box;
     line-height: 16px;
     font-size: 14px;
-    font-weight: bold;
   }
   .tm-body {
     height: calc(100% - 46px);
+    padding: 10px;
+    box-sizing: border-box;
   }
 }
 .dark {
@@ -65,15 +53,6 @@ export default {
     .el-menu-item + .is-active {
         color: #ff851b;
       }
-  }
-}
-.light {
-  color: #000;
-  .tm-header {
-    background: #ecedef;
-  }
-  .tm-body {
-    background: #fff;
   }
 }
 </style>
