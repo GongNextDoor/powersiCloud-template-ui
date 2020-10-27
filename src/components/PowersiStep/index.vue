@@ -62,7 +62,7 @@ export default {
       border-top: 24px solid transparent;
       border-left: 20px solid #fff;
       position: absolute;
-      top: -7px;
+      top: -6px;
       right: -20px;
       z-index: 2;
     }

@@ -370,8 +370,9 @@ export function isExternal(path) {
  */
 export function fuzzyQuery(list, fields, str) {
   var res = []
+  var listCopy = JSON.parse(JSON.stringify(list))
   fields.filter(el => {
-    list.filter((ele, index) => {
+    listCopy.filter((ele, index) => {
       if ((ele[el] && ele[el].toString().indexOf(str) > -1) || str === '') {
         if (res.indexOf(ele) === -1) {
           res.push(ele)

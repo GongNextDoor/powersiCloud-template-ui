@@ -1,6 +1,6 @@
 <template>
   <section class="app-main">
-    <tabs-menu v-if="tabsMenuFlag" />
+    <tabs-menu v-if="false" />
     <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
     </transition>

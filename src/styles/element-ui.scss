@@ -22,6 +22,14 @@
   }
 }
 
+// 覆盖button样式
+.el-button {
+  &.el-button--small {
+    padding: 6px 15px;
+    line-height: 16px;
+  }
+}
+
 // 覆盖table样式
 .el-table {
   th {
@@ -40,13 +48,22 @@
       line-height: 34px;
     }
   }
+  .el-button--text {
+    padding: 0;
+  }
 }
 
 // 覆盖form样式
 .el-form {
   .el-form-item {
+    margin-bottom: 16px;
     .el-form-item__label {
       font-size: 12px;
+      height: 26px;
+      line-height: 26px;
+    }
+    .el-form-item__content {
+      line-height: 26px;
     }
   }
 }
@@ -56,6 +73,8 @@
   font-size: 12px;
   .el-input__inner {
     padding: 0 8px;
+    height: 26px;
+    line-height: 26px;
   }
   .el-input__suffix {
     cursor: pointer;
@@ -82,10 +101,15 @@
 // 覆盖dialog样式
 .el-dialog {
   .el-dialog__header {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom-color: #f4f4f4;
+    padding: 15px 15px 5px;
   }
   .el-dialog__body {
     padding: 20px 20px 0px 20px;
+  }
+  .el-dialog__footer {
+    padding: 5px 15px 15px;
+    border-top: 1px solid #f4f4f4;
   }
 }
 

@@ -3,11 +3,11 @@ import qs from 'qs'
 import { Message } from 'element-ui'
 
 axios.defaults.withCredentials = true
-// var productionUrl = window.location.protocol + '//' + window.location.host + '/' + window.location.pathname.split('/')[1]
+var productionUrl = window.location.protocol + '//' + window.location.host
 const service = axios.create({
-  // baseURL: process.env.NODE_ENV === 'production' ? productionUrl : process.env.VUE_APP_BASE_API,
-  baseURL: 'http://172.18.40.40:20001/',
-  timeout: 10000
+  baseURL: process.env.NODE_ENV === 'production' ? productionUrl : process.env.VUE_APP_BASE_API,
+  // baseURL: 'http://172.18.40.40:20001/',
+  timeout: 300000
 })
 
 // request过滤器

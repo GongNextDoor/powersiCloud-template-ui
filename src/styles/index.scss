@@ -14,6 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-size: 12px;
+  font-family: "Microsoft YaHei","Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",Arial, sans-serif;
 }
 
 a {
@@ -208,17 +209,17 @@ a {
   padding: 8px;
   border-radius: 3px;
   box-sizing: border-box;
-  &+& {
+  &+&, &+div {
     margin-top: 4px;
   }
   &.top {
     border-top: 3px solid $--color-primary;
   }
   &.bottom {
-    height: calc(100% - 105px);
+    height: calc(100% - 101px);
   }
   .el-form-item {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
   }
 }
 .fa {
@@ -235,8 +236,12 @@ a {
 .btn-dark {
   background-color: $night-bg1 !important;
   border-color: $night-bg1 !important;
-  &:active {
-    opacity: .8;
+  color: #fff;
+  line-height: 16px;
+
+  &:hover {
+    opacity: .9;
+    color: #fff;
   }
   &+& {
     margin-left: 4px;
@@ -250,13 +255,24 @@ a {
   &.group-right {
     border-radius: 0 4px 4px 0;
   }
+  &.is-disabled {
+    background-color: #283d51 !important;
+    border-color:  #283d51 !important;
+  }
 }
 // 搜索按钮
 .btn-search {
   height: 23px;
-  line-height: 2px;
+  width: 65px;
+  line-height: 21px !important;
+  padding: 0 15px !important;
+  span {
+    position: relative;
+    left: -3px;
+  }
   i {
     line-height: 2px;
+    margin-right: 4px;
   }
 }
 // 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸
@@ -280,11 +296,11 @@ a {
 }
 
 .font-green {
-  color: #90EE90;
+  color: #88d788;
 }
 
 .font-red {
-  color: #C32F08;
+  color: #ff4432;
 }
 
 .no-padding-popover {
