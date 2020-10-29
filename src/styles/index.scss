@@ -1,8 +1,5 @@
 @import './variables.scss';
-@import './mixin.scss';
-@import './transition.scss';
 @import './element-ui.scss';
-@import './sidebar.scss';
 html {
   height: 100%;
   box-sizing: border-box;
@@ -172,9 +169,9 @@ a {
         background-color: $table-tr-hover;
       }
     }
-    // .el-table__body tr:hover>td{
-    //   background-color: $table-tr-hover !important;
-    // }
+    .el-table__body tr:hover>td{
+      background-color: $table-tr-hover !important;
+    }
     .el-button--text {
       color: $table-button-color;
     }
@@ -195,12 +192,50 @@ a {
   // progress
   .el-progress {
     .el-progress-bar__outer {
-      background: #09233D;
+      background: $night-bg1;
     }
   }
   // drawer
   .el-drawer {
     background-color: $night-bg3;
+  }
+
+  // pagination
+  .el-pagination {
+    color: $font-color-text;
+    .el-pagination__total{
+      position: absolute;
+      right: 10px;
+      color: #ccc;
+    }
+    .el-pagination__sizes {
+      position: absolute;
+      right: 100px;
+      .el-input__inner {
+        background: $night-bg1;
+      }
+    }
+    .btn-prev, .el-pager li, .btn-next {
+      background: $night-bg1;
+    }
+    .btn-prev, .btn-next {
+      color: $font-color-text;
+      &:hover {
+        color: $--color-primary;
+      }
+    }
+    .el-pager li {
+      color: $font-color-text;
+      &:hover, &.active {
+        color: $--color-primary;
+      }
+    }
+    .el-pagination__jump {
+      color: $font-color-text;
+      .el-input__inner {
+        background: $night-bg1;
+      }
+    }
   }
 }
 

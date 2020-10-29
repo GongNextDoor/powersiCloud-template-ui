@@ -1,6 +1,6 @@
 <template>
   <div class="night isTabsMenu serverManage">
-    <table-layout :operation-config="operationConfig" :search-config="searchConfig">
+    <TableLayout :operation-config="operationConfig" :search-config="searchConfig">
       <MyTableView
         slot="table"
         :columns="tableColumns"
@@ -12,7 +12,7 @@
           <el-button type="text" @click="handleConfirm(scope.row)">删除</el-button>
         </template>
       </MyTableView>
-    </table-layout>
+    </TableLayout>
     <edit :show="serveVisible" :edit-data="serveSelectRow" @update:show="editExample" @getServeTableData="getServeTableData" />
   </div>
 </template>
