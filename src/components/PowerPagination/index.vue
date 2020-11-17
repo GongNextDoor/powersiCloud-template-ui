@@ -5,8 +5,8 @@
     :page-size="pageSize"
     layout="prev, pager, next, sizes, total"
     :total="total"
-    @size-change="$emit('handleSizeChange')"
-    @current-change="$emit('handleCurrentChange')"
+    @size-change="sizeChange"
+    @current-change="currentChange"
   />
 </template>
 
@@ -25,6 +25,14 @@ export default {
     total: {
       type: Number,
       default: 0
+    }
+  },
+  methods: {
+    sizeChange(val) {
+      this.$emit('sizeChange', val)
+    },
+    currentChange(val) {
+      this.$emit('currentChange', val)
     }
   }
 }
