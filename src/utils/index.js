@@ -400,24 +400,3 @@ export function fuzzyQueryOneToOne(list, fields, strArr) {
   })
   return res
 }
-
-/**
- * 模糊查询（一个输入框对应多个字段）
- * @param {*Array} list 源数据
- * @param {*Array} fields 要匹配的字段
- * @param str 查询输入值
- */
-export function fuzzyQueryOneToMany(list, fields, str) {
-  var res = JSON.parse(JSON.stringify(list))
-  var result = []
-  res.forEach((el, i) => {
-    fields.forEach((ele, ind) => {
-      if (el[ele] && el[ele].toString().indexOf(str) > -1) {
-        if (result.indexOf(el) === -1) {
-          result.push(el)
-        }
-      }
-    })
-  })
-  return result
-}

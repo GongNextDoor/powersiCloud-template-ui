@@ -62,28 +62,28 @@ export default {
           prop: 'b',
           type: 'input',
           placeholder: '请输入域名',
-          disabled: this.editData.type === 'modify' ? Boolean(true) : false
+          disabled: this.editData.type === 'modify'
         },
         {
           label: 'CPU',
           prop: 'c',
           type: 'input',
           placeholder: '请输入域名',
-          disabled: this.editData.type === 'modify' ? Boolean(true) : false
+          disabled: this.editData.type === 'modify'
         },
         {
           label: '内存',
           prop: 'c',
           type: 'input',
           placeholder: '请输入域名',
-          disabled: this.editData.type === 'modify' ? Boolean(true) : false
+          disabled: this.editData.type === 'modify'
         },
         {
           label: '磁盘',
           prop: 'c',
           type: 'input',
           placeholder: '请输入域名',
-          disabled: this.editData.type === 'modify' ? Boolean(true) : false
+          disabled: this.editData.type === 'modify'
         },
         {
           label: 'SSH用户',
