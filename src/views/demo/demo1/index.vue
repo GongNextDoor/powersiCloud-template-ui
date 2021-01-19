@@ -1,5 +1,5 @@
 <template>
-  <div class="night isTabsMenu serverManage">
+  <div class="night serverManage">
     <TableLayout :operation-config="operationConfig" :search-config="searchConfig">
       <MyTableView
         slot="table"

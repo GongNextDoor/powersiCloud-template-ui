@@ -1,5 +1,5 @@
 <template>
-  <div class="night isTabsMenu">
+  <div class="night">
     <MenuLayout title="菜单">
       <template slot="left">
         1
