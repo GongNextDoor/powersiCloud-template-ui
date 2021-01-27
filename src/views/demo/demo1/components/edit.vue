@@ -23,7 +23,7 @@
       <el-button :loading="isLoading" type="primary" @click="confirm">
         <i v-if="!isLoading" class="iconfont icon-xitong" />保存
       </el-button>
-      <el-button class="closeButton" @click="close">
+      <el-button class="btn-dark" @click="close">
         <i class="iconfont icon-close" />取消
       </el-button>
     </span>

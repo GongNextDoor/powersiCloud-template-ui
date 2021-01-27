@@ -70,7 +70,27 @@
       line-height: 26px;
     }
     .el-form-item__content {
+      position: relative;
       line-height: 26px;
+      .form-item-tag {
+        position: absolute;
+        left: 0;
+        top: 28px;
+        font-size: 12px;
+        line-height: 1;
+        color: #aaa;
+      }
+    }
+    &.no-margin {
+      margin-bottom: 0;
+    }
+    &.inline {
+      display: inline-block;
+    }
+    &.is-error {
+      .form-item-tag {
+        color: #ff4949;
+      }
     }
   }
 }
