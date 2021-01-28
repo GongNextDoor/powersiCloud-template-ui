@@ -1,13 +1,3 @@
-
-## Getting started
-
-```bash
-# clone the project
-git clone https://github.com/Codezero123/powersi-template-vue.git
-
-# enter the project directory
-cd vue-element-admin
-
 # install dependency
 npm install
 
@@ -42,7 +32,3 @@ npm run lint
 # code format check and auto fix
 npm run lint -- --fix
 ```
-
-wanghao
-
-# test
