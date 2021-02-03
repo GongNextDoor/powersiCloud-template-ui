@@ -3,7 +3,6 @@
     :title="editData.type==='add'?'新增服务器':'修改服务器'"
     :is-show="show"
     width="600px"
-    new-class="small"
     @update:isShow="updateIsShow"
     @resetForm="resetForm"
   >
@@ -104,19 +103,11 @@ export default {
         domain: ''
       },
       rules: {
-        hostIp: [
+        a: [
           { required: true, message: '请输入', trigger: 'change' },
           {
             pattern: /^((25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))$/,
             message: '请输入正确的IP',
-            trigger: 'change'
-          }
-        ],
-        domain: [
-          { required: true, message: '请输入', trigger: 'change' },
-          {
-            pattern: /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}(\/{0,1})/,
-            message: '请输入正确的域名',
             trigger: 'change'
           }
         ]
@@ -137,15 +128,15 @@ export default {
   },
   methods: {
     updateIsShow(v) {
-      this.$emit('update:show', 'serveVisible', v)
+      this.$emit('update:show', v)
     },
     resetForm() {
-      this.$refs.form.elForm.resetFields()
       this.form = {
         groupId: '',
         hostIp: '',
         domain: ''
       }
+      this.$refs.form.elForm.resetFields()
     },
     close() {
       this.resetForm()
@@ -158,7 +149,7 @@ export default {
           if (this.form.configId) {
             updateHostsConfig(this.form).then(res => {
               this.isLoading = false
-              this.$emit('getConfigTableData')
+              this.$emit('getTableData')
               this.$msgSuccess('修改成功')
               this.close()
             }).catch(() => {
@@ -167,7 +158,7 @@ export default {
           } else {
             addHostsConfig(this.form).then(res => {
               this.isLoading = false
-              this.$emit('getConfigTableData')
+              this.$emit('getTableData')
               this.$msgSuccess('新增成功')
               this.close()
             }).catch(() => {

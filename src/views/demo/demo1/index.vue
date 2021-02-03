@@ -13,7 +13,7 @@
         </template>
       </MyTableView>
     </TableLayout>
-    <edit :show="serveVisible" :edit-data="serveSelectRow" @update:show="editExample" @getServeTableData="getServeTableData" />
+    <edit :show="serveVisible" :edit-data="serveSelectRow" @update:show="serveVisible=$event" @getTableData="getServeTableData" />
   </div>
 </template>
 
@@ -83,10 +83,6 @@ export default {
       this.$msgConfirm('是否删除？').then(res => {
         this.$msgSuccess(res)
       })
-    },
-
-    editExample(val, b) {
-      this[val] = b
     }
   }
 }

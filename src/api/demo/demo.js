@@ -2,8 +2,8 @@ import request from '@/utils/request'
 import apiUrl from '../apiUrl'
 
 // get
-export function get(params) {
-  return request.get(apiUrl.demoApi.get, params)
+export function get(data) {
+  return request.get(apiUrl.demoApi.get, data)
 }
 
 // post

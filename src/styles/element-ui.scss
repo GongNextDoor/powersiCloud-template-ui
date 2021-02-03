@@ -105,7 +105,10 @@
   }
   .el-input__suffix {
     cursor: pointer;
-    top: -2px;
+    top: 1px;
+  }
+  .el-input__icon {
+    line-height: 26px;
   }
 }
 
@@ -138,7 +141,7 @@
     padding: 20px 20px 0px 20px;
   }
   .el-dialog__footer {
-    padding: 5px 15px 15px;
+    padding: 5px 15px;
     border-top: 1px solid #f4f4f4;
   }
 }
