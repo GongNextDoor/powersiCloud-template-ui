@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import validate from '@/utils/validate'
 import { addHostsConfig, updateHostsConfig } from '@/api/apiUrl'
 export default {
   name: 'Edit',
@@ -105,11 +106,7 @@ export default {
       rules: {
         a: [
           { required: true, message: '请输入', trigger: 'change' },
-          {
-            pattern: /^((25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))$/,
-            message: '请输入正确的IP',
-            trigger: 'change'
-          }
+          { pattern: validate.regIP, message: '请输入正确的IP', trigger: 'change' }
         ]
       },
       isLoading: false
